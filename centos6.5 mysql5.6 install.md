@@ -45,7 +45,7 @@ $ service mysqld start
 
 8 由于mysql刚刚安装完的时候，mysql的root用户的密码默认是空的，所以我们需要及时用mysql的root用户登录（第一次回车键，不用输入密码），并修改密码
 
-```base
+```mysql
 $ mysql -u root  
 $ use mysql;
 $ update user set password=PASSWORD("这里输入root用户密码") where user='root';
@@ -53,7 +53,7 @@ $ update user set password=PASSWORD("这里输入root用户密码") where user='
 
 9 授权（自动创建）一个mysql的的aaa用户，能访问localhost上的testdb数据库，密码是xxxx，最后刷新权限
 
-```base
+```mysql
 $ grant all privileges on testdb.* to aaa@localhost identified by 'xxxx';
 $ flush privileges;
 ```
@@ -68,11 +68,11 @@ $ chkconfig mysqld on
 11 mysql安全设置(系统会一路问你几个问题，看不懂复制之后翻译，基本上一路yes)：
 
 ```base
-#1 为root用户设置密码
-#2 删除匿名账号
-#3 取消root用户远程登录
-#3 删除test库和对test库的访问权限
-#4 刷新授权表使修改生效
+# 1 为root用户设置密码
+# 2 删除匿名账号
+# 3 取消root用户远程登录
+# 3 删除test库和对test库的访问权限
+# 4 刷新授权表使修改生效
 
 $ mysql_secure_installation
 ```
