@@ -1,4 +1,4 @@
-Centos6.5 Mysql5.6 Yum install
+Centos6.5 Yum Install Mysql5.6
 ===================================
 
 1 需要检测系统是否自带安装mysql  
