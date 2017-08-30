@@ -42,6 +42,7 @@
 
 ###只是显示图片
 ![github](http://github.com/unicorn.png "github")
+![sealaqq](https://avatars1.githubusercontent.com/u/9919?v=4 "sea")
 
 ###想点击某个图片进入一个网页,比如我想点击github的icorn然后再进入www.github.com
 [![image]](http://www.github.com/)
