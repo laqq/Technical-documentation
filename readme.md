@@ -9,4 +9,7 @@ Bigdata、 App Frame、 Experience AND Sharing
 ```bash
 	|-- database : relational databases and no sql databases;
 	|-- share System Memory Architecture;
+	|-- linux server deployment;
+	|-- python;
+	|-- hadoop;
 ```
