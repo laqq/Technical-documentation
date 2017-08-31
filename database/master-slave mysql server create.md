@@ -3,7 +3,8 @@ master-slave mysql server create
 
 1 服务器环境
 
-> 主(master_mysql):192.168.132.13  OS:CentOS 6.5 Mysql5.6
+> 主(master_mysql):192.168.132.13  OS:CentOS 6.5 Mysql5.6  
+
 > 主(slave_mysql):192.168.132.14  OS:CentOS 6.5 Mysql5.6
 
 2 master配置(master_mysql)
@@ -29,7 +30,7 @@ $ service mysqld restart
 $ mysql -uroot -p  # 登录mysql
 $ mysql>grant replication slave on *.* to 'sync_user'@'192.168.132.14' identified by '111111';   # 授权给从数据库服务器192.168.132.14，用户名sync_user，密码111111
 $ flush privileges;
-$ mysql> flush tables with read lock; # 线上正在运行的数据库锁表丛库同步后解锁 `unlock tables`;
+$ mysql> flush tables with read lock; # 线上正在运行的数据库锁表从库同步后解锁 `unlock tables`;
 $ mysql>show master status ; # 查看主库的状态  file,position这两个值很有用。要放到slave配置中
 
 ```
@@ -53,4 +54,10 @@ $ mysql -uroot -p
 $ mysql> change master to  master_host='192.168.132.13', master_user='sync_user' ,master_password='111111', master_log_file='mysql-bin-200.000002' ,master_log_pos=1167, MASTER_CONNECT_RETRY=10; # MASTER_CONNECT_RETRY 同步数据频率 10秒同步一次
 $ mysql> start slave;  ##开启从库   (stop slave：关闭从库）
 $ mysql> show slave status; ###Slave_IO_Running,Slave_SQL_Running 都为Yes的时候表示配置成功
+```
+
+6 good night
+
+```bash
+$ exit
 ```
